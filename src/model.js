@@ -4,17 +4,21 @@ class Model {
   }
 
   getItem(id) {
-    this._state.find(item => item.id == id);
+    return this._state.find(item => item.id == id);
   }
 
-  setItem(item) {
-    this._state.push(item)
+  addItem(item) {
+    this._state.push(item);
+
+    return item;
   }
 
   updateItem(id, data) {
     const item = this.getItem(id);
 
     Object.keys(data).forEach(prop => item[prop] = data[prop]);
+
+    return item;
   }
 
   removeItem(id) {
